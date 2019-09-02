@@ -2,7 +2,7 @@ Ext.require([ 'Ext.container.Viewport', 'Ext.panel.Panel', 'Ext.tab.Panel', 'Ext
 
 Ext.define('JobBot.view.JbViewport', {
 	extend: 'Ext.container.Viewport',
-	id: 'fxViewportId',
+	id: 'jbViewportId',
 	alias: 'widget.jbViewport',
 
 	layout: {

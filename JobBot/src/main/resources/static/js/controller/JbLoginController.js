@@ -30,7 +30,7 @@ Ext.define('JobBot.controller.JbLoginController', {
 
 
         Ext.Ajax.request({
-            url: 'jobsuite/login',
+            url: '/login',
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -41,6 +41,9 @@ Ext.define('JobBot.controller.JbLoginController', {
                 username: username,
                 password: password
             },
+            jsonData: true,
+            useDefaultXhrHeader : false,
+            withCredentials: true,
             scope: this,
             success: this.onLoginSuccess,
             failure: this.onLoginFailure

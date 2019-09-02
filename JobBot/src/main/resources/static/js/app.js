@@ -4,8 +4,14 @@ Ext.application({
 	name: 'JobBot',
 	appFolder: Ext.Loader.getPath('JobBot'),
 	autoCreateViewport: false,
-	models: [],
-	views: [ 'JobBot.view.FxViewport'],
+	controllers: [
+	    'JobBot.controller.JbLoginController'
+	],
+	views: [
+        'JobBot.view.JbViewport',
+        'JobBot.view.JbLogin',
+        'JobBot.view.JbJobSuitesGrid'
+	],
 	splashscreen: {},
 	init: function() {
 	        // Start the mask on the body and get a reference to the mask
@@ -36,7 +42,7 @@ Ext.application({
                 listeners: {
                     afteranimate: function(el, startTime, eOpts) {
                        // Ext.widget('fxlogin');
-                        Ext.widget('fxViewport');
+                        Ext.widget('jbViewport');
                     }
                 }
             });
