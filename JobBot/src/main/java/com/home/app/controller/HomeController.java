@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.xml.ws.Response;
+
 @RestController
 //@RequestMapping("/api")
 public class HomeController {
@@ -28,16 +30,14 @@ public class HomeController {
         return modelAndView;
     }
 
-    //@PostMapping(path= "/login", consumes = "application/json", produces = "application/json")
-    @PostMapping(path = "/login", consumes =MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> login(@RequestBody LoginDTO loginDTO) {
+    @RequestMapping (value = "/login", method = RequestMethod.POST)
+    @ResponseBody
+    public LoginDTO login(@RequestBody LoginDTO loginDTO) {
 
         System.out.println("loginDTO.getUsername : "+loginDTO.getUsername());
         System.out.println("loginDTO.getPassword : "+loginDTO.getPassword());
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Responded", "MyController");
-
-        return ResponseEntity.accepted().headers(headers).body(loginDTO);
+        return loginDTO;
     }
+
 }

@@ -28,22 +28,18 @@ Ext.define('JobBot.controller.JbLoginController', {
 
         console.log(username + ' ' + password);
 
+        var values = button.up('window').down('form').getValues();
+        console.log(values);
+        //var login = Ext.create('JobBot.model.Login', values);
 
         Ext.Ajax.request({
             url: '/login',
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            waitTitle: 'Connecting',
-            waitMsg: 'Sending data...',
+            jsonData: values,
             params: {
                 username: username,
                 password: password
             },
-            jsonData: true,
-            useDefaultXhrHeader : false,
-            withCredentials: true,
             scope: this,
             success: this.onLoginSuccess,
             failure: this.onLoginFailure
