@@ -2,7 +2,7 @@ Ext.define('JobBot.controller.JbLoginController', {
     extend: 'Ext.app.Controller',
     id: 'jbLoginControllerId',
 
-    model: [],
+    model: ['JobBot.model.UserToken'],
     views: ['JobBot.view.JbLogin'],
 
     init: function(application) {
@@ -23,34 +23,37 @@ Ext.define('JobBot.controller.JbLoginController', {
     onLoginRequest: function(button, e, opts){
 
         var form = button.up('window').down('form');
-        var username = form.down('textfield[name=username]').getValue();
-        var password = form.down('textfield[name=password]').getValue();
+        var username = form.down('textfield[name=jbotUserName]').getValue();
+        var password = form.down('textfield[name=jbotToken]').getValue();
 
         console.log(username + ' ' + password);
 
         var values = button.up('window').down('form').getValues();
         console.log(values);
-        //var login = Ext.create('JobBot.model.Login', values);
 
         Ext.Ajax.request({
             url: '/login',
             method: 'POST',
             jsonData: values,
-            params: {
-                username: username,
-                password: password
-            },
             scope: this,
             success: this.onLoginSuccess,
             failure: this.onLoginFailure
         });
     },
 
-    onLoginSuccess: function(conn, response, options, eOpts){
-        console.log('success');
+    onLoginSuccess: function(response){
+
+        var returnInfo = Ext.decode(response.responseText);
+        console.log(returnInfo);
+
+        if(returnInfo.status.status = 'success'){
+            Ext.getCmp('jbloginId').close();
+            Ext.create('JobBot.view.JbViewport')
+            loginSuccess = true;
+        }
     },
 
-    onLoginFailure: function(conn, response, options, eOpts){
+    onLoginFailure: function(response){
         console.log(conn.responseText, response);
     }
 
