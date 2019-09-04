@@ -1,21 +1,27 @@
-Ext.require([ 'Ext.window.Window', 'Ext.form.*' ]);
+Ext.require([
+	'Ext.window.Window',
+	'Ext.form.*',
+	'Ext.app.Controller'
+]);
 
 Ext.application({
 	name: 'JobBot',
 	appFolder: Ext.Loader.getPath('JobBot'),
 	autoCreateViewport: false,
-	controllers: [
-	    'JobBot.controller.JbLoginController'
-	],
+    controllers: [
+        'JobBot.controller.JbLoginController'
+    ],
 	views: [
-        'JobBot.view.JbViewport',
-        'JobBot.view.JbLogin',
-        'JobBot.view.JbJobSuitesGrid'
+		'JobBot.view.JbViewport',
+		'JobBot.view.JbJobSuitesGrid',
+		'JobBot.view.JbLogin',
+		'JobBot.view.JbLogin'
 	],
+
 	splashscreen: {},
 	init: function() {
 	        // Start the mask on the body and get a reference to the mask
-    		splashscreen = Ext.getBody().mask('Loading FX application', 'splashscreen');
+    		splashscreen = Ext.getBody().mask('Loading JobBot application', 'splashscreen');
 
     		// Add a new class to this mask as we want it to look different from the
     		// default.
@@ -31,7 +37,7 @@ Ext.application({
 		var task = new Ext.util.DelayedTask(function() {
             // Fade out the body mask
             splashscreen.fadeOut({
-                duration: 1000,
+                duration: 100,
                 remove: true
             });
 
@@ -41,12 +47,11 @@ Ext.application({
                 remove: true,
                 listeners: {
                     afteranimate: function(el, startTime, eOpts) {
-                       // Ext.widget('fxlogin');
-                        Ext.widget('jbViewport');
+                        Ext.widget('jblogin');
                     }
                 }
             });
         });
-        task.delay(2000);
+        task.delay(200);
 	}
 });
