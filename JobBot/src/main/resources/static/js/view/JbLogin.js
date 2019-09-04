@@ -23,12 +23,12 @@ Ext.define('JobBot.view.JbLogin', {
             labelWidth: 60
         },
         items: [ {
-            name: 'username',
+            name: 'jbotUserName',
             fieldLabel: "Username",
             value: 'admin'
         }, {
             inputType: 'Password',
-            name: 'password',
+            name: 'jbotToken',
             fieldLabel: "Password",
             value: 'noface2face'
         } ]
