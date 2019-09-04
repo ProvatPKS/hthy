@@ -2,7 +2,7 @@ Ext.require([ 'Ext.container.Viewport', 'Ext.panel.Panel', 'Ext.tab.Panel', 'Ext
 
 Ext.define('JobBot.view.JbViewport', {
 	extend: 'Ext.container.Viewport',
-	id: 'jbViewportId',
+	id: 'fxViewportId',
 	alias: 'widget.jbViewport',
 
 	layout: {
@@ -17,11 +17,11 @@ Ext.define('JobBot.view.JbViewport', {
 				region: 'north',
 				height: 56,
 				hidden: true
-				//xtype: 'fxHeader'
+				//xtype: 'jbHeader'
 
 			}, {
 				region: 'center',
-				xtype: 'jblogin'
+				xtype: 'jbJobSuitesGrid'
 			}, {
 				xtype: 'panel',
 				height: 20,
