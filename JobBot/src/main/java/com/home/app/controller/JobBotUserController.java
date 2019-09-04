@@ -22,6 +22,8 @@ import com.worldpay.app.jobbot.service.impl.JbotUserLoginServiceImpl;
 @RestController
 public class JobBotUserController {
 
+    @Autowired
+    JbotUserLoginServiceImpl JbotUserLoginService;
     
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView init() {
