@@ -15,7 +15,11 @@ Ext.application({
 		'JobBot.view.JbViewport',
 		'JobBot.view.JbJobSuitesGrid',
 		'JobBot.view.JbLogin',
-		'JobBot.view.JbHeader'
+		'JobBot.view.JbHeader',
+        'JobBot.view.JbHome',
+        'JobBot.view.JbCurrentStatus',
+        'JobBot.view.JbJobActivitySummary',
+        'JobBot.view.JbActionRequired'
 	],
 
 	splashscreen: {},
