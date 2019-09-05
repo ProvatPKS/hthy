@@ -16,18 +16,19 @@ Ext.define('JobBot.view.JbViewport', {
 			items: [ {
 				region: 'north',
 				height: 56,
-				hidden: true
-				//xtype: 'jbHeader'
+				//hidden: true,
+				xtype: 'jbHeader'
 
 			}, {
 				region: 'center',
 				xtype: 'jbJobSuitesGrid'
 			}, {
 				xtype: 'panel',
-				height: 20,
-				border: 0,
-                hidden: true,
-				region: 'south'
+                height: 20,
+                border: 0,
+                frame: false,
+                id: 'statusbarPaneId',
+                region: 'south'
 			} ]
 		};
 		Ext.applyIf(me, config);

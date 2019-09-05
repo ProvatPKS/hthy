@@ -9,28 +9,36 @@ Ext.define('JobBot.view.JbJobSuitesGrid', {
     columns: [
         {
             text: 'Name',
-            dataIndex: 'name'
+            dataIndex: 'name',
+            flex: 1
         },{
             text: 'Description',
-            dataIndex: 'description'
+            dataIndex: 'description',
+            flex: 1
         },{
 	        text: 'Hold Status',
-            dataIndex: 'holdStatus'
+            dataIndex: 'holdStatus',
+            flex: 1
         },{
 	        text: 'Schedule Type',
-            dataIndex: 'scheduleType'
+            dataIndex: 'scheduleType',
+            flex: 1
         },{
             text: 'Reactive',
-            dataIndex: 'reactive'
+            dataIndex: 'reactive',
+            flex: 1
         },{
             text: 'Editing Member Jobs?',
-            dataIndex: 'editingMemberJobs'
+            dataIndex: 'editingMemberJobs',
+            flex: 1
         },{
             text: 'Next Schedule Run Time',
-            dataIndex: 'nextScheduleRunTime'
+            dataIndex: 'nextScheduleRunTime',
+            flex: 1
         },{
             text: 'Status',
-            dataIndex: 'status'
+            dataIndex: 'status',
+            flex: 1
         }
     ]
 

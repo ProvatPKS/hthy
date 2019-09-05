@@ -15,7 +15,7 @@ Ext.application({
 		'JobBot.view.JbViewport',
 		'JobBot.view.JbJobSuitesGrid',
 		'JobBot.view.JbLogin',
-		'JobBot.view.JbLogin'
+		'JobBot.view.JbHeader'
 	],
 
 	splashscreen: {},
@@ -33,25 +33,45 @@ Ext.application({
     		});
 	},
 	launch: function() {
-		FxApp = this;
-		var task = new Ext.util.DelayedTask(function() {
-            // Fade out the body mask
-            splashscreen.fadeOut({
-                duration: 100,
-                remove: true
-            });
+		JobBotApp = this;
+		if (!loginSuccess) {
+            var task = new Ext.util.DelayedTask(function() {
+                // Fade out the body mask
+                splashscreen.fadeOut({
+                    duration: 100,
+                    remove: true
+                });
 
-            // Fade out the icon and message
-            splashscreen.next().fadeOut({
-                duration: 1000,
-                remove: true,
-                listeners: {
-                    afteranimate: function(el, startTime, eOpts) {
-                        Ext.widget('jblogin');
+                // Fade out the icon and message
+                splashscreen.next().fadeOut({
+                    duration: 1000,
+                    remove: true,
+                    listeners: {
+                        afteranimate: function(el, startTime, eOpts) {
+                            Ext.widget('jblogin');
+                        }
                     }
-                }
+                });
             });
+            task.delay(200);
+        }
+	},
+
+
+    updateStatusBar: function() {
+        var copyright = '<span> &copy; 2019 - 2021 XXX. All rights reserved.</span> ';
+        var footerStatusBar = Ext.create('Ext.ux.statusbar.StatusBar', {
+            id: 'basic-statusbar',
+            cls: 'x-statusbar',
+            // defaults to use when the status is cleared:
+            defaultText: 'Initial State',
+            defaultIconCls: 'x-status-valid',
+            text: 'Initial State',
+            iconCls: 'x-status-valid',
+            height: 20,
+            dock: 'top',
+            items: [ '-', copyright ]
         });
-        task.delay(200);
-	}
+        Ext.getCmp('statusbarPaneId').addDocked(footerStatusBar);
+    }
 });

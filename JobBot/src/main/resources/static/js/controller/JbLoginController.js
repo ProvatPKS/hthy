@@ -23,10 +23,10 @@ Ext.define('JobBot.controller.JbLoginController', {
     onLoginRequest: function(button, e, opts){
 
         var form = button.up('window').down('form');
-        var username = form.down('textfield[name=jbotUserName]').getValue();
+       /* var username = form.down('textfield[name=jbotUserName]').getValue();
         var password = form.down('textfield[name=jbotToken]').getValue();
 
-        console.log(username + ' ' + password);
+        console.log(username + ' ' + password);*/
 
         var values = button.up('window').down('form').getValues();
         console.log(values);
@@ -50,6 +50,7 @@ Ext.define('JobBot.controller.JbLoginController', {
             Ext.getCmp('jbloginId').close();
             Ext.create('JobBot.view.JbViewport')
             loginSuccess = true;
+            JobBotApp.updateStatusBar();
         }
     },
 
