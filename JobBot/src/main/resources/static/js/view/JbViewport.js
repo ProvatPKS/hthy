@@ -21,7 +21,7 @@ Ext.define('JobBot.view.JbViewport', {
 
 			}, {
 				region: 'center',
-				xtype: 'jbJobSuitesGrid'
+				xtype: 'jbHome'
 			}, {
 				xtype: 'panel',
                 height: 20,
